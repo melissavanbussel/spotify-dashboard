@@ -14,24 +14,106 @@ Placeholder text for column 1
 #| echo: false
 #| include: false
 library(tidyverse)
+library(httr2)
 ```
 
-```{r, printstarwars}
-head(starwars)
+```{r, createaccesstoken}
+#| echo: false
+#| include: false
+# Define client ID and client secret in order to generate Spotify access token
+client_id <- Sys.getenv("SPOTIFY_CLIENT_ID")
+client_secret <- Sys.getenv("SPOTIFY_CLIENT_SECRET")
+
+# Generate Spotify access token
+req_access_token <- request("https://accounts.spotify.com/api/token") |> 
+  req_method("POST") |> 
+  req_body_raw(paste0(
+    "grant_type=client_credentials&client_id=",
+    client_id,
+    "&client_secret=",
+    client_secret
+  ), "application/x-www-form-urlencoded") |> 
+  req_perform() |> 
+  resp_body_json()
+spotify_access_token <- req_access_token$access_token
+```
+
+```{r, gettthplaylist}
+# Get Today's Top Hits Playlist information
+tth <- request("https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M") |> 
+  req_method("GET") |> 
+  req_headers(
+    Authorization = paste0("Bearer ", spotify_access_token),
+  ) |> 
+  req_perform() |> 
+  resp_body_json()
+
+# Create data frame with the top hits information
+top_hits_df <- data.frame(
+  song_name = unlist(lapply(tth$tracks$items, FUN = function(x) { x$track$name })),
+  song_id = unlist(lapply(tth$tracks$items, FUN = function(x) { x$track$id })),
+  artist_name = unlist(lapply(tth$tracks$items, FUN = function(x) {x$track$album$artists[[1]]$name})),
+  album_art = unlist(lapply(tth$tracks$items, FUN = function(x) {x$track$album$images[[1]]$url})),
+  track_duration = unlist(lapply(tth$tracks$items, FUN = function(x) {x$track$duration_ms})), 
+  popularity = unlist(lapply(tth$tracks$items, FUN = function(x) {x$track$popularity}))
+)
+
+tempo_list <- vector(mode = "list", length = 50)
+for (i in 1:50) {
+  audio_analysis <- request(paste0("https://api.spotify.com/v1/audio-analysis/", top_hits_df$song_id[i])) |> 
+  req_method("GET") |> 
+  req_headers(
+    Authorization = paste0("Bearer ", spotify_access_token),
+  ) |> 
+  req_perform() |> 
+  resp_body_json()
+  
+  # Get tempo for each section of the song
+  tempo_list[[i]] <- unlist(lapply(audio_analysis$sections, FUN = function(x) {x$tempo }))
+}
+top_hits_df$tempo <- I(tempo_list)
 ```
 
 ## Column {width="65%"}
 
 ### Row {height="10%"}
 
-```{r, displaypassword}
-paste0("My username is: ", Sys.getenv("MY_USERNAME"))
-paste0("My password is: ", Sys.getenv("MY_PASSWORD"))
+```{r, sendtoojs}
+#| echo: false
+#| include: false
+ojs_define(top_hits_ojs = top_hits_df)
+```
+
+```{ojs}
+//| expandable: false
+
+// Tranpose the data to  make it usable in ojs
+top_hits = transpose(top_hits_ojs)
+
+// Create a dropdown menu of the songs
+viewof songDropdown = Inputs.select(
+  top_hits.map(d => d.song_name),
+  {
+    label: "Choose a song",
+    unique: true
+  }
+)
 ```
 
 ### Row {height="70%"}
 
-Placeholder text for column 2, row 2
+```{ojs}
+//| expandable: false
+html`<iframe style="border-radius:12px" 
+  src=${`https://open.spotify.com/embed/track/${top_hits.find(song => song.song_name === songDropdown).song_id}?utm_source=generator`} 
+  width="100%" 
+  height="352" 
+  frameBorder="0" 
+  allowfullscreen="" 
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+  loading="lazy">
+</iframe>`
+```
 
 ### Row {height="20%"}
 

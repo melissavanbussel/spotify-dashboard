@@ -35,6 +35,6 @@ jobs:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MY_USERNAME: ${{ secrets.MY_USERNAME_GHA }}
-          MY_PASSWORD: ${{ secrets.MY_PASSWORD_GHA }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.MY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.MY_CLIENT_SECRET }}
           
