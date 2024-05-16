@@ -15,6 +15,7 @@ Placeholder text for column 1
 #| include: false
 library(tidyverse)
 library(httr2)
+library(gt)
 ```
 
 ```{r, createaccesstoken}
@@ -72,6 +73,82 @@ for (i in 1:50) {
   tempo_list[[i]] <- unlist(lapply(audio_analysis$sections, FUN = function(x) {x$tempo }))
 }
 top_hits_df$tempo <- I(tempo_list)
+```
+
+```{r, createtable}
+generate_svg_circle <- function(popularity_value) {
+  popularity_value <- as.numeric(popularity_value)
+  
+  # Calculate the radius of the circle
+  radius <- 10 + 15 * (popularity_value / 100)  
+  
+  # Interpolate the color from red (popularity = 0) to green (popularity = 100)
+  circle_colour_picker <- colorRampPalette(c("#B91d1d", "#ED8E11", "#EDDE11", "#1DB954"))
+  
+  # There are 101 color values
+  color <- circle_colour_picker(101)[popularity_value + 1]
+  
+  # Generate the SVG code for the circle
+  svg_code <- sprintf(
+    '<svg height="%1$s" width="%1$s"><circle cx="%2$s" cy="%2$s" r="%2$s" stroke="none" stroke-width="0" fill="%3$s" /><text class="circle-text" x="%2$s" y="%2$s" font-size="%4$s" fill="white" text-anchor="middle" dy=".3em">%5$s</text></svg>',
+    2 * radius,  # SVG width and height
+    radius,      # Circle center x, y
+    color,       # Fill color used also for stroke
+    radius * 0.6,  # Font size based on radius
+    popularity_value   # Text to display
+  )
+  return(svg_code)
+}
+
+# Create the gt table with custom formatting
+top_hits_df |>
+  select(album_art, song_name, artist_name, track_duration, popularity, tempo) |>
+  gt() |>
+  cols_label(
+    album_art = md("**Song**"),
+    song_name = "",
+    artist_name = md("**Artist**"),
+    track_duration = html('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="15" viewBox="0,0,255.998,255.998"><g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M12,2c-5.523,0 -10,4.477 -10,10c0,5.523 4.477,10 10,10c5.523,0 10,-4.477 10,-10c0,-5.523 -4.477,-10 -10,-10zM14.586,16l-3.293,-3.293c-0.188,-0.188 -0.293,-0.442 -0.293,-0.707v-5c0,-0.552 0.448,-1 1,-1v0c0.552,0 1,0.448 1,1v4.586l3,3c0.39,0.39 0.39,1.024 0,1.414v0c-0.39,0.39 -1.024,0.39 -1.414,0z"></path></g></g></svg>'),
+    popularity = md("**Popularity**")
+  ) |>
+  text_transform(
+    locations = cells_body(columns = album_art),
+    fn = function(x) { web_image(url = x, height = 50) }
+  ) |>
+  text_transform(
+    fn = function(x) {
+      generate_svg_circle(x)
+    },
+    locations = cells_body(columns = popularity)
+  ) |> 
+  fmt(
+    columns = track_duration, 
+    fns = function(x) {
+      minutes <- floor(x / 60000)
+      seconds <- round((x %% 60000) / 1000)
+      sprintf("%d:%02d", minutes, seconds)
+    }
+  ) |>
+  cols_nanoplot(
+    columns = tempo,
+    plot_type = "line",
+    new_col_name = "tempos",
+    new_col_label = md("**Tempo**"),
+    options = nanoplot_options(
+      data_point_fill_color = "#1DB954",
+      data_point_stroke_color = "#1DB954",
+      data_area_fill_color = "#1DB954",
+      data_line_stroke_color = "#7D3C98"
+    )
+  ) |>
+  cols_align(
+    align = "center",
+    columns = popularity
+  ) |> 
+  tab_options(
+    table.font.color = "#FFFFFF",
+    table.background.color = "#191414"
+  )
 ```
 
 ## Column {width="65%"}
