@@ -167,7 +167,9 @@ Generally speaking, songs that are being played a lot now will have a higher pop
     table_body.hlines.color = "transparent",
     table_body.border.bottom.color = "transparent",
     column_labels.border.bottom.color = "transparent",
-    column_labels.border.top.color = "transparent"
+    column_labels.border.top.color = "transparent",
+    footnotes.background.color = "#282828",
+    source_notes.background.color = "#282828"
   ) |> 
   tab_style_body(
     style = cell_borders(
@@ -201,6 +203,8 @@ ojs_define(top_hits_ojs = top_hits_df)
 
 ```{ojs}
 //| expandable: false
+//| echo: false
+//| include: false
 
 // Tranpose the data to  make it usable in ojs
 top_hits = transpose(top_hits_ojs)
@@ -219,6 +223,8 @@ viewof songDropdown = Inputs.select(
 
 ```{ojs}
 //| expandable: false
+//| echo: false
+//| include: false
 html`<iframe style="border-radius:12px" 
   src=${`https://open.spotify.com/embed/track/${top_hits.find(song => song.song_name === songDropdown).song_id}?utm_source=generator`} 
   width="100%" 
