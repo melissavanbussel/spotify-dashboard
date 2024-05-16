@@ -8,8 +8,6 @@ format:
 
 ## Column {width="35%"}
 
-Placeholder text for column 1
-
 ```{r, loadpackages}
 #| echo: false
 #| include: false
@@ -40,6 +38,8 @@ spotify_access_token <- req_access_token$access_token
 ```
 
 ```{r, gettthplaylist}
+#| echo: false
+#| include: false
 # Get Today's Top Hits Playlist information
 tth <- request("https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M") |> 
   req_method("GET") |> 
@@ -76,6 +76,7 @@ top_hits_df$tempo <- I(tempo_list)
 ```
 
 ```{r, createtable}
+#| expandable: false
 generate_svg_circle <- function(popularity_value) {
   popularity_value <- as.numeric(popularity_value)
   
@@ -85,16 +86,16 @@ generate_svg_circle <- function(popularity_value) {
   # Interpolate the color from red (popularity = 0) to green (popularity = 100)
   circle_colour_picker <- colorRampPalette(c("#B91d1d", "#ED8E11", "#EDDE11", "#1DB954"))
   
-  # There are 101 color values
+  # There are 101 colour values since popularity ranges from 0 to 100
   color <- circle_colour_picker(101)[popularity_value + 1]
   
   # Generate the SVG code for the circle
   svg_code <- sprintf(
     '<svg height="%1$s" width="%1$s"><circle cx="%2$s" cy="%2$s" r="%2$s" stroke="none" stroke-width="0" fill="%3$s" /><text class="circle-text" x="%2$s" y="%2$s" font-size="%4$s" fill="white" text-anchor="middle" dy=".3em">%5$s</text></svg>',
-    2 * radius,  # SVG width and height
-    radius,      # Circle center x, y
-    color,       # Fill color used also for stroke
-    radius * 0.6,  # Font size based on radius
+    2 * radius,        # SVG width and height
+    radius,            # Circle center x, y
+    color,             # Fill color used also for stroke
+    radius * 0.6,      # Font size based on radius
     popularity_value   # Text to display
   )
   return(svg_code)
@@ -145,9 +146,46 @@ top_hits_df |>
     align = "center",
     columns = popularity
   ) |> 
+  tab_footnote(
+    footnote = "The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.
+Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past.",
+    locations = cells_column_labels(columns = popularity)
+  ) |> 
+  tab_footnote(
+    footnote = "The tempo is measured in beats per minute and represents the speed at which the music is played. The visualization shows how the tempo varies across the different sections of the song. Sections with a higher tempo are generally more energetic and upbeat, while sections with a lower tempo may be more emotional or contemplative.",
+    locations = cells_column_labels(columns = tempos)
+  ) |> 
+  tab_source_note(
+    source_note = md("**Source:** [Today's Top Hits Playlist](https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M), from the Spotify Web API")
+  ) |> 
   tab_options(
     table.font.color = "#FFFFFF",
-    table.background.color = "#191414"
+    table.background.color = "#191414",
+    table.font.size = px(12),
+    table.border.top.color = "transparent",
+    table.border.bottom.color = "transparent",
+    table_body.hlines.color = "transparent",
+    table_body.border.bottom.color = "transparent",
+    column_labels.border.bottom.color = "transparent",
+    column_labels.border.top.color = "transparent"
+  ) |> 
+  tab_style_body(
+    style = cell_borders(
+      sides = c("top", "bottom"),
+      weight = px(0) # Remove row borders
+    ),
+    fn = function(x) { is.numeric(x) | is.character(x) }
+  ) |> 
+  opt_css(
+    css = "
+    table tr:nth-child(odd) {
+      background-color: #282828;
+    }
+      
+    table tr:hover {
+      background-color: #383838;
+    }
+    "
   )
 ```
 
@@ -194,4 +232,12 @@ html`<iframe style="border-radius:12px"
 
 ### Row {height="20%"}
 
-Placeholder text for column 2, row 3
+:::{.card expandable="false"}
+<div style="background-color: #7D3C98; color: white; border-radius: 10px; padding: 10px; text-align: center; display: flex; align-items: center; justify-content: center; height: 100%;">
+
+  <span style="font-size: 1vw; width: 100%;">
+    **Want to make a project like this?** This dashboard was created by [Melissa Van Bussel](https://www.melissavanbussel.com/) for [Posit's 2024 Table Contest](https://posit.co/blog/announcing-the-2024-table-contest/).<br> You can find a tutorial for this dashboard [here](https://melissavanbussel.github.io/spotify-dashboard) and you can find the code that powers this dashboard [here](https://github.com/melissavanbussel/spotify-dashboard).
+  </span>
+
+</div>
+:::

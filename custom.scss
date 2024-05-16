@@ -1,8 +1,152 @@
 /*-- scss:defaults --*/
-// Base document colors
-// $body-bg: #181818;
-// $body-color: white;
-$link-color: #75AADB;
 
-// Code blocks
-$code-block-bg-alpha: -.8;
+$theme-spotify-green: #1DB954;
+$theme-lighter-green: #1ed760;
+$theme-dark-purple: #7D3C98;
+$theme-light-purple: #e3cbf2;
+$theme-darkest-gray: #191414;
+$theme-medium-gray: #282828;
+$theme-light-gray: #f4f4f4;
+$theme-text-color: white;
+
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@700&family=Montserrat&display=swap');
+
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$footer-bg: $theme-spotify-green;
+$font-size-root: 12px;
+$link-color: $theme-light-purple;
+$sidebar-bg: $theme-light-gray;
+$sidebar-fg: $theme-darkest-gray;
+$code-block-bg: $theme-medium-gray;
+
+/*-- scss:rules --*/
+
+/* Display options for tables */
+table {
+  display: block;
+  max-width: 100%;
+  overflow: auto;
+}
+td {
+  mid-width: 200px;
+}
+
+/* Change the background colours to a Spotify-like theme */
+body {
+  background-color: $theme-darkest-gray !important;
+}
+.card {
+  --bs-card-border-width: 0px; 
+  --bs-card-bg: $theme-darkest-gray !important;
+}
+.card-body {
+  padding: 0px;
+  color: $theme-text-color !important;
+  background-color: $theme-darkest-gray;
+}
+.navbar {
+  background-color: $theme-medium-gray;
+  color: $theme-text-color;
+}
+:root {
+  --bs-body-bg: $theme-darkest-gray !important;
+  --bs-card-bg: $theme-darkest-gray !important;
+}
+
+/* Scrollbar theming */
+::-webkit-scrollbar {
+    width: 12px; /* Vertical scrollbar width */
+    height: 12px; /* Horizontal scrollbar height */
+}
+::-webkit-scrollbar-track { /* Track (part the thumb slides within) */
+    background: $theme-darkest-gray; 
+    border-radius: 10px; /* Rounded corners on the track */
+}
+::-webkit-scrollbar-thumb { /* Thumb (draggable part of the scrollbar) */
+    background-color: $theme-spotify-green;
+    border-radius: 10px; /* Rounded corners on the thumb */
+    border: 3px solid $theme-darkest-gray; /* Makes the thumb slightly smaller than the track */
+}
+::-webkit-scrollbar-thumb:hover { /* Thumb hover effects */
+    background-color: $theme-lighter-green;
+}
+select { /* Dropdown styling */ 
+    background-color: $theme-darkest-gray !important;
+    padding: 8px;
+    border: 1px solid $theme-text-color !important;
+    border-radius: 4px;
+    width: 200px;
+}
+select option { /* Styling of the items in the dropdown list when dropdown button is clicked */
+    background-color: $theme-darkest-gray !important; /* Light grey background for options */
+    color: $theme-text-color !important; /* Text color for options */
+}
+select option:hover { /* Styling of the currently highlighted item in the dropdown menu */ 
+  background-color: $theme-spotify-green !important;
+}
+
+/* Make superscripts in gt table not italic */
+.gt_footnote_marks sup {
+  font-style: normal;
+}
+
+/* Make sure album art in gt table always stays square and maintains aspect ratio */ 
+.gt_table img {
+  object-fit: contain;
+}
+
+/* Defined custom class in generate_circle_svg function to be able to modify the font size of the nanoplot text only */ 
+div.html-fill-item.html-fill-container text:not(.circle-text) {
+  font-size: 6em; /* This will exclude text elements with the 'circle-text' class */
+}
+
+/* Remove underline from hyperlinks*/
+a {
+  text-decoration: none;
+  color: $link-color;
+}
+
+/* Bold navbar title */
+.navbar-title {
+  font-weight: bold;
+}
+
+/* Height of embedded Spotify Web Player */
+.TrackWidget_widgetContainer__gADzr {
+  height: 100vh !important;
+}
+
+/* Make all headings and paragraph text white */ 
+h1, h2, h3, h4, h5, h6, p {
+  color: $theme-text-color;
+}
+
+/* Make the text in the sidebar (of the Quarto website, not the dashboard), dark gray */ 
+.sidebar-title {
+  color: $theme-darkest-gray;
+}
+
+/* Text colour of currently selected page in sidebar */
+div.sidebar-item-container .active {
+  color: $theme-dark-purple;
+}
+
+/* Text colour of noncurrently selected sidebar list items */
+div.sidebar-item-container {
+  color: $theme-darkest-gray;
+}
+
+/* Text colour of currently hovered on sidebar list item */ 
+div.sidebar-item-container:hover {
+  color: $theme-dark-purple;
+}
+
+/* Colour of "Next page" text in bottom right of each Quarto HTML webpage */ 
+.nav-page a {
+  color: $link-color;
+}
+
+/* Colour of "AUTHOR" text */ 
+#title-block-header.quarto-title-block.default .quarto-title-meta-heading {
+  color: $link-color;
+}
