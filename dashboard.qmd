@@ -203,8 +203,6 @@ ojs_define(top_hits_ojs = top_hits_df)
 
 ```{ojs}
 //| expandable: false
-//| echo: false
-//| include: false
 
 // Tranpose the data to  make it usable in ojs
 top_hits = transpose(top_hits_ojs)
@@ -223,9 +221,7 @@ viewof songDropdown = Inputs.select(
 
 ```{ojs}
 //| expandable: false
-//| echo: false
-//| include: false
-html`<iframe style="border-radius:12px" 
+html`<iframe style="border-radius:12px; display: flex; justify-content: center; align-items: center;" 
   src=${`https://open.spotify.com/embed/track/${top_hits.find(song => song.song_name === songDropdown).song_id}?utm_source=generator`} 
   width="100%" 
   height="352" 
