@@ -70,6 +70,9 @@ body {
 ::-webkit-scrollbar-thumb:hover { /* Thumb hover effects */
     background-color: $theme-lighter-green;
 }
+::-webkit-scrollbar-corner { /* Bottom corner of the scrollbar */
+    background: $theme-darkest-gray; /* Match the track background color */
+}
 select { /* Dropdown styling */ 
     background-color: $theme-darkest-gray !important;
     padding: 8px;
@@ -114,6 +117,9 @@ a {
 /* Height of embedded Spotify Web Player */
 .TrackWidget_widgetContainer__gADzr {
   height: 100vh !important;
+}
+div.html-fill-item.html-fill-container {
+  justify-content: center;
 }
 
 /* Make all headings and paragraph text white */ 
