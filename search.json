@@ -1,15 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "spotify-dashboard",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -17,6 +7,16 @@
     "text": "About this site\n\n1 + 1\n\n[1] 2",
     "crumbs": [
       "About"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "spotify-dashboard",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Home"
     ]
   }
 ]
