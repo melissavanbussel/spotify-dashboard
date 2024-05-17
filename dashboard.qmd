@@ -126,10 +126,7 @@ top_hits_df |>
     columns = track_duration, 
     fns = function(x) {
       num_minutes <- floor(x / 60000)
-      num_seconds <- round((x %% 60000) / 1000)
-      if (num_seconds == 60) {
-        num_seconds <- 59
-      }
+      num_seconds <- min(round((x %% 60000) / 1000), 59)
       sprintf("%d:%02d", num_minutes, num_seconds)
     }
   ) |>
