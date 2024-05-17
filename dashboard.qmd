@@ -222,7 +222,7 @@ viewof songDropdown = Inputs.select(
 ```{ojs}
 //| expandable: false
 html`<iframe class="custom-iframe" style="border-radius:12px; display: flex; justify-content: center; align-items: center;" 
-  src=${`https://open.spotify.com/embed/track/${top_hits.find(song => song.song_name === songDropdown).song_id}?utm_source=generator`} 
+  src=${`https://open.spotify.com/embed/track/${top_hits.find(song => song.song_name === songDropdown).song_id}?utm_source=generator&theme=0`} 
   width="100%" 
   height="352" 
   frameBorder="0" 
