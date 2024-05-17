@@ -1,10 +1,13 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "tutorial.html",
+    "href": "tutorial.html",
+    "title": "Placeholder content",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Placeholder content\nThis is where the tutorial will go when it’s ready.",
+    "crumbs": [
+      "Tutorial"
+    ]
   },
   {
     "objectID": "index.html",
@@ -15,5 +18,12 @@
     "crumbs": [
       "About"
     ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   }
 ]
