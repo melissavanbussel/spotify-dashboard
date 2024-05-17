@@ -187,6 +187,16 @@ Generally speaking, songs that are being played a lot now will have a higher pop
     table tr:hover {
       background-color: #383838;
     }
+    
+    .gt_col_heading {
+      position: sticky;
+      top: 0;
+    }
+
+    thead th:first-child {
+      left: 0;
+      z-index: 2;
+    }
     "
   )
 ```
