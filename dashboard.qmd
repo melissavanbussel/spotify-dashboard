@@ -127,6 +127,9 @@ top_hits_df |>
     fns = function(x) {
       minutes <- floor(x / 60000)
       seconds <- round((x %% 60000) / 1000)
+      if (seconds == 60) {
+        seconds <- 59
+      }
       sprintf("%d:%02d", minutes, seconds)
     }
   ) |>
