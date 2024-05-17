@@ -118,8 +118,8 @@ a {
 .TrackWidget_widgetContainer__gADzr {
   height: 100vh !important;
 }
-div.html-fill-item.html-fill-container {
-  justify-content: center;
+div.html-fill-item.html-fill-container .custom-iframe {
+  justify-content: center; /* Center the web player only, not the gt table */
 }
 
 /* Make all headings and paragraph text white */ 
