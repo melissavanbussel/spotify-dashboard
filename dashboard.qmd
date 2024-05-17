@@ -104,7 +104,7 @@ generate_svg_circle <- function(popularity_value) {
 # Create the gt table with custom formatting
 top_hits_df |>
   select(album_art, song_name, artist_name, track_duration, popularity, tempo) |>
-  gt() |>
+  gt(id = "custom") |>
   cols_label(
     album_art = md("**Song**"),
     song_name = "",
@@ -188,14 +188,19 @@ Generally speaking, songs that are being played a lot now will have a higher pop
       background-color: #383838;
     }
     
-    .gt_col_heading {
-      position: sticky;
-      top: 0;
+    .cell-output-display {
+      overflow-x: unset !important;
     }
-
-    thead th:first-child {
-      left: 0;
-      z-index: 2;
+    
+    div#custom {
+      overflow-x: unset !important;
+      overflow-y: unset !important;
+    }
+    
+    #custom .gt_col_heading {
+      position: sticky !important;
+      top: -5px !important;
+      z-index: 10 !important;
     }
     "
   )
