@@ -3,19 +3,29 @@ project:
 
 website:
   title: "Spotify Dashboard"
+  favicon: images/logo.png
+  page-navigation: true
+  site-url: https://melissavanbussel.github.io/spotify-dashboard
+  repo-url: https://github.com/melissavanbussel/spotify-dashboard
+  repo-actions: [edit, source, issue]
   sidebar:
-    contents:
+    title: Posit Great Tables Contest
+    style: "docked"
+    search: true
+    collapse-level: 1
+    logo: images/logo.png
+    contents: 
       - href: index.qmd
-        text: Home
-      - href: about.qmd
         text: About
       - href: dashboard.qmd
-        text: Dashboard
+        text: My entry
+      - href: tutorial.qmd
+        text: Tutorial
 
 format:
   html:
     theme: [cosmo, custom.scss]
+    highlight-style: atom-one-dark
     toc: true
-
-
-
+    grid:
+      sidebar-width: 150px
