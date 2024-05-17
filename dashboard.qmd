@@ -125,12 +125,12 @@ top_hits_df |>
   fmt(
     columns = track_duration, 
     fns = function(x) {
-      minutes <- floor(x / 60000)
-      seconds <- round((x %% 60000) / 1000)
-      if (seconds == 60) {
-        seconds <- 59
+      num_minutes <- floor(x / 60000)
+      num_seconds <- round((x %% 60000) / 1000)
+      if (num_seconds == 60) {
+        num_seconds <- 59
       }
-      sprintf("%d:%02d", minutes, seconds)
+      sprintf("%d:%02d", num_minutes, num_seconds)
     }
   ) |>
   cols_nanoplot(
