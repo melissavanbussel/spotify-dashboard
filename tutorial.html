@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Melissa Van Bussel">
 
-<title>Spotify Dashboard</title>
+<title>Spotify Dashboard - Building an interactive Spotify dashboard</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./about.html" rel="next">
 <link href="./dashboard.html" rel="prev">
 <link href="./images/logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -99,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
       <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Posit Great Tables Contest</a> 
+      <a href="./">Posit 2024 Table Contest</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -112,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -127,6 +129,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Tutorial</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About Me</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -137,19 +145,66 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#placeholder-content" id="toc-placeholder-content" class="nav-link active" data-scroll-target="#placeholder-content">Placeholder content</a></li>
+  <li><a href="#tutorial-1-creating-quarto-dashboards-and-publishing-them-for-free-using-github-actions-and-github-pages" id="toc-tutorial-1-creating-quarto-dashboards-and-publishing-them-for-free-using-github-actions-and-github-pages" class="nav-link active" data-scroll-target="#tutorial-1-creating-quarto-dashboards-and-publishing-them-for-free-using-github-actions-and-github-pages">Tutorial 1: 🌐 Creating Quarto Dashboards and publishing them for FREE using GitHub Actions and GitHub Pages</a></li>
+  <li><a href="#tutorial-2-how-to-securely-store-passwords-as-environment-variables-using-github-actions" id="toc-tutorial-2-how-to-securely-store-passwords-as-environment-variables-using-github-actions" class="nav-link" data-scroll-target="#tutorial-2-how-to-securely-store-passwords-as-environment-variables-using-github-actions">Tutorial 2: 🔒 How to securely store passwords as environment variables using GitHub Actions</a></li>
+  <li><a href="#tutorial-3-how-to-access-spotify-data-using-r" id="toc-tutorial-3-how-to-access-spotify-data-using-r" class="nav-link" data-scroll-target="#tutorial-3-how-to-access-spotify-data-using-r">Tutorial 3: 🎵 How to access Spotify data using R</a></li>
+  <li><a href="#tutorial-4-embedding-media-in-quarto-projects-using-iframes" id="toc-tutorial-4-embedding-media-in-quarto-projects-using-iframes" class="nav-link" data-scroll-target="#tutorial-4-embedding-media-in-quarto-projects-using-iframes">Tutorial 4: 🖼️ Embedding media in Quarto projects using iframes</a></li>
+  <li><a href="#tutorial-5-creating-interactive-quarto-dashboards-with-observable-js-github-actions-and-github-pages" id="toc-tutorial-5-creating-interactive-quarto-dashboards-with-observable-js-github-actions-and-github-pages" class="nav-link" data-scroll-target="#tutorial-5-creating-interactive-quarto-dashboards-with-observable-js-github-actions-and-github-pages">Tutorial 5: 🖱️ Creating interactive Quarto dashboards with Observable JS, GitHub Actions, and GitHub Pages</a></li>
+  <li><a href="#tutorial-6-creating-and-styling-a-gt-table-plus-some-quarto-styling-in-general" id="toc-tutorial-6-creating-and-styling-a-gt-table-plus-some-quarto-styling-in-general" class="nav-link" data-scroll-target="#tutorial-6-creating-and-styling-a-gt-table-plus-some-quarto-styling-in-general">Tutorial 6: 🎨 Creating and styling a <code>gt</code> table, plus some Quarto styling in general</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/melissavanbussel/spotify-dashboard/edit/main/tutorial.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/melissavanbussel/spotify-dashboard/blob/main/tutorial.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/melissavanbussel/spotify-dashboard/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Building an interactive Spotify dashboard</h1>
+</div>
 
 
 
-<section id="placeholder-content" class="level1">
-<h1>Placeholder content</h1>
-<p>This is where the tutorial will go when it’s ready.</p>
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Melissa Van Bussel </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="tutorial-1-creating-quarto-dashboards-and-publishing-them-for-free-using-github-actions-and-github-pages" class="level1">
+<h1>Tutorial 1: 🌐 Creating Quarto Dashboards and publishing them for FREE using GitHub Actions and GitHub Pages</h1>
+<p>This video will be posted on Wednesday, May 22nd, 2024.</p>
+</section>
+<section id="tutorial-2-how-to-securely-store-passwords-as-environment-variables-using-github-actions" class="level1">
+<h1>Tutorial 2: 🔒 How to securely store passwords as environment variables using GitHub Actions</h1>
+<p>This video will be posted on Thursday, May 23rd, 2024.</p>
+</section>
+<section id="tutorial-3-how-to-access-spotify-data-using-r" class="level1">
+<h1>Tutorial 3: 🎵 How to access Spotify data using R</h1>
+<p>This video will be posted on Friday, May 24th, 2024.</p>
+</section>
+<section id="tutorial-4-embedding-media-in-quarto-projects-using-iframes" class="level1">
+<h1>Tutorial 4: 🖼️ Embedding media in Quarto projects using iframes</h1>
+<p>This video will be posted on Tuesday, May 28th, 2024.</p>
+</section>
+<section id="tutorial-5-creating-interactive-quarto-dashboards-with-observable-js-github-actions-and-github-pages" class="level1">
+<h1>Tutorial 5: 🖱️ Creating interactive Quarto dashboards with Observable JS, GitHub Actions, and GitHub Pages</h1>
+<p>This video will be posted on Wednesday, May 29th, 2024.</p>
+</section>
+<section id="tutorial-6-creating-and-styling-a-gt-table-plus-some-quarto-styling-in-general" class="level1">
+<h1>Tutorial 6: 🎨 Creating and styling a <code>gt</code> table, plus some Quarto styling in general</h1>
+<p>This video will be posted on Thursday, May 30th, 2024.</p>
 
 
 </section>
@@ -571,6 +626,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./about.html" class="pagination-link" aria-label="About Me">
+        <span class="nav-page-text">About Me</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
