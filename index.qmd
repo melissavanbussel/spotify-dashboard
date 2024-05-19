@@ -17,7 +17,7 @@ I figured out the tricky bits, and I promise, it's not nearly as complicated as 
 
 2. 🔒 How to securely store passwords as environment variables using GitHub Actions (Thursday, May 23rd)
 
-3. 🎵 How to access Spotify data using R (Friday, May 24th)
+3. 🎧 How to access Spotify data using R (Friday, May 24th)
 
 4. 🖼️ Embedding media in Quarto projects using iframes (Tuesday, May 28th)
 
