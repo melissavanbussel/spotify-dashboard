@@ -9,18 +9,20 @@ website:
   repo-url: https://github.com/melissavanbussel/spotify-dashboard
   repo-actions: [edit, source, issue]
   sidebar:
-    title: Posit Great Tables Contest
+    title: "Posit 2024 Table Contest"
     style: "docked"
     search: true
     collapse-level: 1
     logo: images/logo.png
     contents: 
       - href: index.qmd
-        text: About
+        text: Home
       - href: dashboard.qmd
         text: My entry
       - href: tutorial.qmd
         text: Tutorial
+      - href: about.qmd
+        text: About Me
 
 format:
   html:

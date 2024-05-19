@@ -1,9 +1,39 @@
 ---
-title: "About"
+title: "About Me"
+toc: false
 ---
 
-About this site
+::::: {.columns}
 
-```{r}
-1 + 1
-```
+:::: {.column width="35%"}
+
+<img src="images/Melissa_Van_Bussel.jpg" style="width: 25vw; border-radius: 15px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+
+::::
+
+:::: {.column width="5%"}
+
+::::
+
+:::: {.column width="60%"}
+
+<big>
+
+# 👋 Hi, I'm Melissa (🌈she/her)
+
+### It's nice to meet you!
+
+I'm an accredited [Associate Statistician](https://ssc.ca/en/accreditation) (A. Stat.) and a Senior Data Analyst at Statistics Canada. I completed my M. Sc. in Statistics at Carleton University (2021), and my B. Sc. H. in Mathematics and Computing Systems with a Specialization in Statistics at Trent University (2019). 
+
+I'm passionate about all things Data Science and Teaching (and especially where those two things interact!). I make [educational YouTube videos](https://www.youtube.com/c/ggnot2) in my spare time (under the name "ggnot2"), covering topics such as R programming and Machine Learning.
+
+I'm a co-organizer for the [R-Ladies Ottawa chapter](https://www.meetup.com/rladies-ottawa/). If you're a gender minority interested in R or open source and you're in the Ottawa area, join us!
+
+You can find me on [my website](https://www.melissavanbussel.com/) [YouTube](https://www.youtube.com/c/ggnot2), [LinkedIn](https://www.linkedin.com/in/melissavanbussel/), [Twitter](https://x.com/melvanbussel) and [GitHub](https://github.com/melissavanbussel).
+
+</big>
+
+::::
+
+:::::
+

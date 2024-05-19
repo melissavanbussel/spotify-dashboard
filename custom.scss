@@ -156,3 +156,8 @@ div.sidebar-item-container:hover {
 #title-block-header.quarto-title-block.default .quarto-title-meta-heading {
   color: $link-color;
 }
+
+/* Colour of non-hovered list items in table of contents */
+.sidebar .toc-actions ul li a {
+  color: $theme-text-color !important;
+}

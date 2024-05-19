@@ -1,3 +1,76 @@
-# Placeholder content
+---
+title: "Building an interactive Spotify dashboard"
+author: "Melissa Van Bussel"
+---
 
-This is where the tutorial will go when it's ready.
+```{r}
+#| echo: false
+#| include: false
+todays_date <- Sys.Date()
+
+# Video 1
+if (todays_date >= as.Date("2024-05-22")) {
+  video_link_1 <- '<iframe width="560" height="315" src="https://www.youtube.com/embed/5zYrgRylkH0;start=145" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+} else {
+  video_link_1 <- 'This video will be posted on Wednesday, May 22nd, 2024.'
+}
+
+# Video 2
+if (todays_date >= as.Date("2024-05-23")) {
+  video_link_2 <- '<iframe width="560" height="315" src="https://www.youtube.com/embed/RNqsqcOYDp0;start=145" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+} else {
+  video_link_2 <- 'This video will be posted on Thursday, May 23rd, 2024.'
+}
+
+# Video 3
+if (todays_date >= as.Date("2024-05-24")) {
+  video_link_3 <- '<iframe width="560" height="315" src="https://www.youtube.com/embed/MLs0f9vNk9c;start=145" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+} else {
+  video_link_3 <- 'This video will be posted on Friday, May 24th, 2024.'
+}
+
+# Video 4
+if (todays_date >= as.Date("2024-05-28")) {
+  video_link_4 <- '<iframe width="560" height="315" src="https://www.youtube.com/embed/y7ZdBUtQxqg;start=145" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+} else {
+  video_link_4 <- 'This video will be posted on Tuesday, May 28th, 2024.'
+}
+
+# Video 5
+if (todays_date >= as.Date("2024-05-29")) {
+  video_link_5 <- '<iframe width="560" height="315" src="https://www.youtube.com/embed/1k1ExCgzXl0;start=145" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+} else {
+  video_link_5 <- 'This video will be posted on Wednesday, May 29th, 2024.'
+}
+
+# Video 6
+if (todays_date >= as.Date("2024-05-30")) {
+  video_link_6 <- '<iframe width="560" height="315" src="https://www.youtube.com/embed/27Njh1i9-oM;start=145" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+} else {
+  video_link_6 <- 'This video will be posted on Thursday, May 30th, 2024.'
+}
+```
+
+# Tutorial 1: 🌐 Creating Quarto Dashboards and publishing them for FREE using GitHub Actions and GitHub Pages
+
+`r video_link_1`
+
+# Tutorial 2: 🔒 How to securely store passwords as environment variables using GitHub Actions
+
+`r video_link_2`
+
+# Tutorial 3: 🎵 How to access Spotify data using R
+
+`r video_link_3`
+
+# Tutorial 4: 🖼️ Embedding media in Quarto projects using iframes
+
+`r video_link_4`
+
+# Tutorial 5: 🖱️ Creating interactive Quarto dashboards with Observable JS, GitHub Actions, and GitHub Pages
+
+`r video_link_5`
+
+# Tutorial 6: 🎨 Creating and styling a `gt` table, plus some Quarto styling in general
+
+`r video_link_6`
