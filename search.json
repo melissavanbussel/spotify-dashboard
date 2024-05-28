@@ -4,7 +4,7 @@
     "href": "tutorial.html",
     "title": "Building an interactive Spotify dashboard",
     "section": "",
-    "text": "Tutorial 1: 🌐 Creating Quarto Dashboards and publishing them for FREE using GitHub Actions and GitHub Pages\n\n\n\n\nTutorial 2: 🔒 How to securely store passwords as environment variables using GitHub Actions\n\n\n\n\nTutorial 3: 🎵 How to access Spotify data using R\n\n\n\n\nTutorial 4: 🖼️ Embedding media in Quarto projects using iframes\nThis video will be posted on Tuesday, May 28th, 2024.\n\n\nTutorial 5: 🖱️ Creating interactive Quarto dashboards with Observable JS, GitHub Actions, and GitHub Pages\nThis video will be posted on Wednesday, May 29th, 2024.\n\n\nTutorial 6: 🎨 Creating and styling a gt table, plus some Quarto styling in general\nThis video will be posted on Thursday, May 30th, 2024.",
+    "text": "Tutorial 1: 🌐 Creating Quarto Dashboards and publishing them for FREE using GitHub Actions and GitHub Pages\n\n\n\n\nTutorial 2: 🔒 How to securely store passwords as environment variables using GitHub Actions\n\n\n\n\nTutorial 3: 🎵 How to access Spotify data using R\n\n\n\n\nTutorial 4: 🖼️ Embedding media in Quarto projects using iframes\n\n\n\n\nTutorial 5: 🖱️ Creating interactive Quarto dashboards with Observable JS, GitHub Actions, and GitHub Pages\nThis video will be posted on Wednesday, May 29th, 2024.\n\n\nTutorial 6: 🎨 Creating and styling a gt table, plus some Quarto styling in general\nThis video will be posted on Thursday, May 30th, 2024.",
     "crumbs": [
       "Tutorial"
     ]
