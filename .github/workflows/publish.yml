@@ -24,6 +24,17 @@ jobs:
         with:
           r-version: '4.2.0'
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libharfbuzz-dev libfribidi-dev libfreetype6-dev pkg-config
+
+      - name: Set PKG_CONFIG_PATH
+        run: |
+          echo "/usr/lib/x86_64-linux-gnu/pkgconfig" >> $GITHUB_ENV
+          echo "/usr/local/lib/pkgconfig" >> $GITHUB_ENV
+          echo "/usr/share/pkgconfig" >> $GITHUB_ENV
+
       - name: Install R Dependencies
         uses: r-lib/actions/setup-renv@v2
         with:
@@ -37,4 +48,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SPOTIFY_CLIENT_ID: ${{ secrets.MY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.MY_CLIENT_SECRET }}
-          
