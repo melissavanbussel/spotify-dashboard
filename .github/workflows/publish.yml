@@ -31,9 +31,7 @@ jobs:
 
       - name: Set PKG_CONFIG_PATH
         run: |
-          echo "/usr/lib/x86_64-linux-gnu/pkgconfig" >> $GITHUB_ENV
-          echo "/usr/local/lib/pkgconfig" >> $GITHUB_ENV
-          echo "/usr/share/pkgconfig" >> $GITHUB_ENV
+          echo "PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/local/lib/pkgconfig:/usr/share/pkgconfig" >> $GITHUB_ENV
 
       - name: Install R Dependencies
         uses: r-lib/actions/setup-renv@v2
