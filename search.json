@@ -1,15 +1,5 @@
 [
   {
-    "objectID": "tutorial.html",
-    "href": "tutorial.html",
-    "title": "Building an interactive Spotify dashboard",
-    "section": "",
-    "text": "Tutorial 1: 🌐 Creating Quarto Dashboards and publishing them for FREE using GitHub Actions and GitHub Pages\n\n\n\n\nTutorial 2: 🔒 How to securely store passwords as environment variables using GitHub Actions\n\n\n\n\nTutorial 3: 🎵 How to access Spotify data using R\n\n\n\n\nTutorial 4: 🖼️ Embedding media in Quarto projects using iframes\n\n\n\n\nTutorial 5: 🖱️ Creating interactive Quarto dashboards with Observable JS, GitHub Actions, and GitHub Pages\n\n\n\n\nTutorial 6: 🎨 Creating and styling a gt table, plus some Quarto styling in general",
-    "crumbs": [
-      "Tutorial"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Posit 2024 Great Table Contest - Spotify Dashboard",
@@ -27,6 +17,16 @@
     "text": "👋 Hi, I’m Melissa (🌈she/her)\n\nIt’s nice to meet you!\nI’m an accredited Associate Statistician (A. Stat.) and a Senior Data Analyst at Statistics Canada. I completed my M. Sc. in Statistics at Carleton University (2021), and my B. Sc. H. in Mathematics and Computing Systems with a Specialization in Statistics at Trent University (2019).\nI’m passionate about all things Data Science and Teaching (and especially where those two things interact!). I make educational YouTube videos in my spare time (under the name “ggnot2”), covering topics such as R programming and Machine Learning.\nI’m a co-organizer for the R-Ladies Ottawa chapter. If you’re a gender minority interested in R or open source and you’re in the Ottawa area, join us!\nYou can find me on my website YouTube, LinkedIn, Twitter and GitHub.",
     "crumbs": [
       "About Me"
+    ]
+  },
+  {
+    "objectID": "tutorial.html",
+    "href": "tutorial.html",
+    "title": "Building an interactive Spotify dashboard",
+    "section": "",
+    "text": "Tutorial 1: 🌐 Creating Quarto Dashboards and publishing them for FREE using GitHub Actions and GitHub Pages\n\n\n\n\nTutorial 2: 🔒 How to securely store passwords as environment variables using GitHub Actions\n\n\n\n\nTutorial 3: 🎵 How to access Spotify data using R\n\n\n\n\nTutorial 4: 🖼️ Embedding media in Quarto projects using iframes\n\n\n\n\nTutorial 5: 🖱️ Creating interactive Quarto dashboards with Observable JS, GitHub Actions, and GitHub Pages\n\n\n\n\nTutorial 6: 🎨 Creating and styling a gt table, plus some Quarto styling in general",
+    "crumbs": [
+      "Tutorial"
     ]
   }
 ]
